@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/intro_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/image7"
+            android:src="@drawable/ic_record"
+            android:layout_gravity="center"
+            android:layout_marginTop="-50dp"
+            android:layout_marginLeft="85dp" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Moviezy"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:layout_gravity="top|center"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginTop="32dp"
+            android:textSize="28sp"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/moviezy"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/ic_play_arrow"
+                android:layout_gravity="center" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Push To Satrt"
+                android:id="@+id/button2" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" View casts, trailers and share to friends"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:layout_gravity="bottom|center"
+            android:maxEms="18"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="32dp"
+            android:textSize="20sp"/>
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/image8"
+            android:src="@drawable/ic_cast"
+            android:layout_gravity="center"
+            android:layout_marginTop="-65dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="85dp" />
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/image5"
+            android:src="@drawable/ic_share"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="50dp"
+            android:layout_marginBottom="0dp" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/image6"
+            android:src="@drawable/ic_movie"
+            android:layout_marginRight="50dp"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginBottom="-10dp" />
+
+    </FrameLayout>
+
+</FrameLayout>
