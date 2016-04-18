@@ -150,9 +150,22 @@ public class DetailActivityFragment extends Fragment implements LoaderManager.Lo
     private Uri mSimilarUri;
     private Long mMovieId;
     private String mMovieTitle;
+    private String mMovieOverview;
+    private String mMovieDate;
+    private Double mMovieVote;
+    private String mMoviePoster;
+    private String mMovieBackdrop;
     private GenreAdapter mGenreRecyclerViewAdapter;
     private CastMiniAdapter mCastMiniAdapter;
     private SimilarMovieAdapter mSimilarMovieAdapter;
+
+    private boolean fragmentWasPaused = false;
+    private String pauseMovieTitle;
+    private String pauseMovieOverview;
+    private String pauseMovieDate;
+    private String pauseMovieVote;
+    private String pauseMoviePoster;
+    private String pauseMovieBackdrop;
 
     public interface Callback {
         public void onItemSelected(Uri contentUri);
@@ -163,23 +176,60 @@ public class DetailActivityFragment extends Fragment implements LoaderManager.Lo
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onPause() {
+        super.onPause();
+        fragmentWasPaused = true;
+        Intent pauseData = getActivity().getIntent();
+
+        if(fragmentWasPaused && pauseData.getStringExtra("MOVIE_HAS_DATA") != "YES") {
+            pauseData.putExtra("MOVIE_TITLE",mMovieTitle);
+            pauseData.putExtra("MOVIE_OVERVIEW",mMovieOverview);
+            pauseData.putExtra("MOVIE_POSTER",mMoviePoster);
+            pauseData.putExtra("MOVIE_BACKDROP",mMovieBackdrop);
+            pauseData.putExtra("MOVIE_DATE",mMovieDate);
+            pauseData.putExtra("MOVIE_VOTE",mMovieVote);
+            pauseData.putExtra("MOVIE_HAS_DATA","YES");
+        }
     }
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    public void onResume() {
+        super.onResume();
+
+        if (fragmentWasPaused) {
+            getLoaderManager().destroyLoader(DETAIL_LOADER);
+
+            pauseMovieTitle = getActivity().getIntent().getStringExtra("MOVIE_TITLE");
+            pauseMovieOverview = getActivity().getIntent().getStringExtra("MOVIE_OVERVIEW");
+            pauseMoviePoster = getActivity().getIntent().getStringExtra("MOVIE_POSTER");
+            pauseMovieBackdrop = getActivity().getIntent().getStringExtra("MOVIE_BACKDROP");
+            pauseMovieDate = getActivity().getIntent().getStringExtra("MOVIE_DATE");
+            pauseMovieVote = getActivity().getIntent().getStringExtra("MOVIE_VOTE");
+
+            mTitle.setText(pauseMovieTitle);
+            mDate.setText(pauseMovieDate);
+            mOverview.setText(pauseMovieOverview);
+            mVote.setText(pauseMovieVote);
+
+            Glide.with(getContext())
+                    .load(pauseMoviePoster)
+                    .crossFade()
+                    .into(mPoster);
+
+            Glide.with(getContext())
+                    .load(pauseMovieBackdrop)
+                    .crossFade()
+                    .into(mBackdrop);
+
+            fragmentWasPaused = false;
+        }
+
     }
 
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_detail, container, false);
 
         // Get movieID for Movie to build Trailer URI, Genre URI, Cast URI and Similar URI
@@ -225,15 +275,6 @@ public class DetailActivityFragment extends Fragment implements LoaderManager.Lo
         mCastGridView.setAdapter(mCastMiniAdapter);
 
         mViewCastButton = (Button) rootView.findViewById(R.id.viewCastButton);
-        mViewCastButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), CastActivity.class)
-                        .putExtra("MOVIE_ID",mMovieId)
-                        .putExtra("MOVIE_TITLE", mMovieTitle);
-                startActivity(intent);
-            }
-        });
 
         if (mMovieId != null) {
             // Start Loader to get Movie Details, Casts, Trailer, Genre and Similar Movies
@@ -314,32 +355,31 @@ public class DetailActivityFragment extends Fragment implements LoaderManager.Lo
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
 
         if (data != null && data.moveToFirst()) {
-            String title = data.getString(COL_MOVIE_TITLE);
-            String overview = data.getString(COL_MOVIE_OVERVIEW);
-            String date = StringFormatter.formatDate(data.getString(COL_MOVIE_DATE));
-            String poster = data.getString(COL_MOVIE_POSTER);
-            String backdrop = data.getString(COL_MOVIE_BACKDROP);
-            Double vote = data.getDouble(COL_MOVIE_VOTE);
+            mMovieTitle = data.getString(COL_MOVIE_TITLE);
+            mMovieOverview = data.getString(COL_MOVIE_OVERVIEW);
+            mMovieDate = StringFormatter.formatDate(data.getString(COL_MOVIE_DATE));
+            mMoviePoster = data.getString(COL_MOVIE_POSTER);
+            mMovieBackdrop = data.getString(COL_MOVIE_BACKDROP);
+            mMovieVote = data.getDouble(COL_MOVIE_VOTE);
 
-            mTitle.setText(title);
-            mDate.setText(date);
-            mOverview.setText((!overview.isEmpty()) ? overview :"Not Available");
-            mVote.setText((vote == 0) ? "No Rating" : vote.toString());
+            mTitle.setText(mMovieTitle);
+            mDate.setText(mMovieDate);
+            mVote.setText((mMovieVote == 0) ? "No Rating" : mMovieVote.toString());
+            mOverview.setText((!mMovieOverview.isEmpty()) ? mMovieOverview :"Not Available");
 
             Glide.with(getContext())
-                    .load(poster)
+                    .load(mMoviePoster)
                     .placeholder(R.drawable.movieholder_dark)
                     .crossFade()
                     .into(mPoster);
 
             Glide.with(getContext())
-                    .load(backdrop)
+                    .load(mMovieBackdrop)
                     .crossFade()
                     .into(mBackdrop);
 
             try {
-                ((CollapsingToolbarLayout) getActivity().findViewById(R.id.collapsing_toolbar_layout)).setTitle(title);
-                mMovieTitle = title;
+                ((CollapsingToolbarLayout) getActivity().findViewById(R.id.collapsing_toolbar_layout)).setTitle(mMovieTitle);
             } catch (Exception e) {}
         }
     }
@@ -468,6 +508,7 @@ public class DetailActivityFragment extends Fragment implements LoaderManager.Lo
                             Uri contentUri = MovieContract.MovieEntry.buildMovieUri(cursor.getInt(COL_SIMILAR_SIMILAR_MOVIE_ID));
 
                             Intent intent = new Intent(getActivity(), DetailActivity.class)
+                                    .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                                     .setData(contentUri);
                             startActivityForResult(intent, 0);
                         }
@@ -525,7 +566,7 @@ public class DetailActivityFragment extends Fragment implements LoaderManager.Lo
                         Intent intent = new Intent(getActivity(), PersonActivity.class)
                                 .putExtra("PERSON_ID", mData.getLong(DetailActivityFragment.COL_CAST_ID))
                                 .putExtra("PERSON_NAME", mData.getString(DetailActivityFragment.COL_CAST_NAME));
-                        startActivity(intent);
+                        startActivityForResult(intent, 4);
                     }
                 });
 
@@ -535,6 +576,21 @@ public class DetailActivityFragment extends Fragment implements LoaderManager.Lo
                 mCastCardView.postInvalidate();
                 mCastCardView.setVisibility(View.VISIBLE);
             }
+
+            mViewCastButton.setVisibility(View.VISIBLE);
+            mViewCastButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getActivity(), CastActivity.class)
+                            .putExtra("MOVIE_ID",mMovieId)
+                            .putExtra("MOVIE_TITLE", mMovieTitle)
+                            .putExtra("MOVIE_OVERVIEW",mMovieOverview)
+                            .putExtra("MOVIE_BACKDROP",mMovieBackdrop)
+                            .putExtra("MOVIE_VOTE",mMovieVote);
+                    startActivityForResult(intent, 2);
+
+                }
+            });
         }
 
         @Override
@@ -546,9 +602,9 @@ public class DetailActivityFragment extends Fragment implements LoaderManager.Lo
     public void reloadLoaders() {
         try {
             getLoaderManager().restartLoader(DETAIL_LOADER, null, this);
-            getLoaderManager().restartLoader(CAST_LOADER, null, castLoaderListener);
-            getLoaderManager().restartLoader(GENRE_LOADER, null, genreLoaderListener);
             getLoaderManager().restartLoader(TRAILER_LOADER, null, trailerLoaderListener);
+            getLoaderManager().restartLoader(GENRE_LOADER, null, genreLoaderListener);
+            getLoaderManager().restartLoader(CAST_LOADER, null, castLoaderListener);
             getLoaderManager().restartLoader(SIMILAR_LOADER, null, similarLoaderListener);
         }
         catch (Exception ex){}

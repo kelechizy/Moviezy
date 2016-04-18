@@ -13,6 +13,8 @@ import com.serigon.movietrend.R;
 
 public class DetailActivity extends AppCompatActivity {
 
+    private DetailActivityFragment mFragment = new DetailActivityFragment();
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -27,6 +29,7 @@ public class DetailActivity extends AppCompatActivity {
                 Toast.makeText(this, errorMessage, Toast.LENGTH_LONG).show();
             }
         }
+
     }
 
     @Override
@@ -39,13 +42,13 @@ public class DetailActivity extends AppCompatActivity {
             Bundle arguments = new Bundle();
             arguments.putParcelable(DetailActivityFragment.DETAIL_URI, getIntent().getData());
 
-            DetailActivityFragment fragment = new DetailActivityFragment();
-            fragment.setArguments(arguments);
+            mFragment.setArguments(arguments);
 
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.movie_detail_fragment_container, fragment)
+                    .add(R.id.movie_detail_fragment_container, mFragment,"DFTAG")
                     .commit();
         }
+
     }
 
 
@@ -75,4 +78,5 @@ public class DetailActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }

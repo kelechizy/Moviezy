@@ -65,13 +65,19 @@
 
         <activity
             android:name="com.serigon.moviezy.activity.PersonActivity"
-            android:label="@string/title_activity_person" >
+            android:label="@string/title_activity_person"
+
+            android:parentActivityName="com.serigon.moviezy.activity.DetailActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.serigon.moviezy.activity.DetailActivity" />
+            >
         </activity>
 
 
         <provider
             android:name="com.serigon.moviezy.data.MovieProvider"
-            android:authorities="@string/content_authority"
+            android:authorities="com.serigon.moviezy.data"
             android:exported="false"
             android:syncable="true" />
     </application>

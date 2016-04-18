@@ -2,11 +2,18 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.0\jars\classes.jar"
+        jar="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\app\build\intermediates\exploded-aar\com.android.support\design\23.1.1\jars\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="e5f32fa48a3eb2de0c987025c11b6e3864b634d9">
-        <dex dex="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\app\build\intermediates\pre-dexed\debug\classes-2cb23486798f91b6f0ed6fd0de605b0c44c8afe1.jar" />
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\app\build\intermediates\pre-dexed\debug\classes-79d33254bdf3944e731aac6023590eeedeae6183.jar" />
+    </item>
+    <item
+        jar="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\Moviezy\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.0\jars\libs\internal_impl-23.2.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="6e239441500605809818997dd63b62a947195f8c">
+        <dex dex="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\Moviezy\app\build\intermediates\pre-dexed\debug\internal_impl-23.2.0-d290920abbcfaa887d2b2ffc789100a831558c64.jar" />
     </item>
     <item
         jar="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\app\libs\picasso-2.5.2.jar"
@@ -14,20 +21,6 @@
         revision="21.1.2"
         sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
         <dex dex="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\app\build\intermediates\pre-dexed\debug\picasso-2.5.2-28e624c9ef3c84fb170d353377ed754d0bc4427b.jar" />
-    </item>
-    <item
-        jar="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
-        <dex dex="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\app\build\intermediates\pre-dexed\debug\classes-0d658ae48af88c13cfc6026c1cde73c3c5ca1ba6.jar" />
-    </item>
-    <item
-        jar="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\app\libs\YouTubeAndroidPlayerApi.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="3c4f96ff493456651cc7bdb0b47e10eb25545a16">
-        <dex dex="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\app\build\intermediates\pre-dexed\debug\YouTubeAndroidPlayerApi-c10711a57b351ff350aad932e8053f4e7da30401.jar" />
     </item>
     <item
         jar="C:\Users\Kelechi\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.6.1\86b122e640af09b0723e1fa44083c354ba6d9089\glide-3.6.1.jar"
@@ -44,11 +37,81 @@
         <dex dex="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\app\build\intermediates\pre-dexed\debug\internal_impl-23.2.0-401533b80429022d1d81345cd2c6a23866202069.jar" />
     </item>
     <item
+        jar="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\Moviezy\app\libs\YouTubeAndroidPlayerApi.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="3c4f96ff493456651cc7bdb0b47e10eb25545a16">
+        <dex dex="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\Moviezy\app\build\intermediates\pre-dexed\debug\YouTubeAndroidPlayerApi-da30a64dd2a6abac39948597e4281eb541b7d6dd.jar" />
+    </item>
+    <item
+        jar="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\app\libs\YouTubeAndroidPlayerApi.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="3c4f96ff493456651cc7bdb0b47e10eb25545a16">
+        <dex dex="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\app\build\intermediates\pre-dexed\debug\YouTubeAndroidPlayerApi-c10711a57b351ff350aad932e8053f4e7da30401.jar" />
+    </item>
+    <item
+        jar="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\Moviezy\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e5f32fa48a3eb2de0c987025c11b6e3864b634d9">
+        <dex dex="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\Moviezy\app\build\intermediates\pre-dexed\debug\classes-cdc611bc6f986fb55521a70e598653740b420247.jar" />
+    </item>
+    <item
+        jar="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e5f32fa48a3eb2de0c987025c11b6e3864b634d9">
+        <dex dex="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\app\build\intermediates\pre-dexed\debug\classes-2cb23486798f91b6f0ed6fd0de605b0c44c8afe1.jar" />
+    </item>
+    <item
+        jar="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\Moviezy\app\build\intermediates\exploded-aar\com.android.support\design\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\Moviezy\app\build\intermediates\pre-dexed\debug\classes-074e31bf31ee46066d49176c050d031f536eab2b.jar" />
+    </item>
+    <item
+        jar="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\app\build\intermediates\pre-dexed\debug\classes-0d658ae48af88c13cfc6026c1cde73c3c5ca1ba6.jar" />
+    </item>
+    <item
+        jar="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\Moviezy\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="5e412e954a24c5310a459c09870e4e2081aceb03">
+        <dex dex="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\Moviezy\app\build\intermediates\pre-dexed\debug\classes-309413277ea862d2cdc69ddf71cb2ca0893792d7.jar" />
+    </item>
+    <item
         jar="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.1.1\jars\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="5e412e954a24c5310a459c09870e4e2081aceb03">
         <dex dex="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\app\build\intermediates\pre-dexed\debug\classes-d145b64656a9c526d12dc3c3f6c7fb5fe750e0a9.jar" />
+    </item>
+    <item
+        jar="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\Moviezy\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d4c936aa8c7d2522c82e3f1829c791d9e367f009">
+        <dex dex="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\Moviezy\app\build\intermediates\pre-dexed\debug\classes-b5f67ee3fcb3ffc6ad7adfcb9b73c47321b78b29.jar" />
+    </item>
+    <item
+        jar="C:\Users\Kelechi\Downloads\adt-bundle-windows-x86_64-20140702\sdk\extras\android\m2repository\com\android\support\support-annotations\23.2.0\support-annotations-23.2.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="c5bf571bb10462bd90e5419ade67793f71acbc87">
+        <dex dex="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\app\build\intermediates\pre-dexed\debug\support-annotations-23.2.0-d0cfc7169ef489bedc070aff8c4491af0dc5a2cd.jar" />
+    </item>
+    <item
+        jar="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\Moviezy\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\Moviezy\app\build\intermediates\pre-dexed\debug\classes-2649a3c8e9b5d76a5081d6f39d7de5f0ee5c173f.jar" />
     </item>
     <item
         jar="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.2.0\jars\classes.jar"
@@ -58,18 +121,11 @@
         <dex dex="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\app\build\intermediates\pre-dexed\debug\classes-e271121e22633f395f2560118ca02afb700526a8.jar" />
     </item>
     <item
-        jar="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\app\build\intermediates\exploded-aar\com.android.support\design\23.1.1\jars\classes.jar"
+        jar="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\Moviezy\app\libs\picasso-2.5.2.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
-        <dex dex="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\app\build\intermediates\pre-dexed\debug\classes-79d33254bdf3944e731aac6023590eeedeae6183.jar" />
-    </item>
-    <item
-        jar="C:\Users\Kelechi\Downloads\adt-bundle-windows-x86_64-20140702\sdk\extras\android\m2repository\com\android\support\support-annotations\23.2.0\support-annotations-23.2.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="c5bf571bb10462bd90e5419ade67793f71acbc87">
-        <dex dex="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\app\build\intermediates\pre-dexed\debug\support-annotations-23.2.0-d0cfc7169ef489bedc070aff8c4491af0dc5a2cd.jar" />
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="C:\Users\Kelechi\AndroidStudioProjects\Moviezy\Moviezy\app\build\intermediates\pre-dexed\debug\picasso-2.5.2-83ca90c883880d687cc80c35526141d1b1aee766.jar" />
     </item>
 
 </items>

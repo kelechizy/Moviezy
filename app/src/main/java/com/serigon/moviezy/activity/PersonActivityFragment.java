@@ -102,6 +102,8 @@ public class PersonActivityFragment extends Fragment implements LoaderManager.Lo
 
     public PersonActivityFragment() { setHasOptionsMenu(true);}
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -262,6 +264,7 @@ public class PersonActivityFragment extends Fragment implements LoaderManager.Lo
                             Uri contentUri = MovieContract.MovieEntry.buildMovieUri(Long.parseLong(mCursor.getString(COL_CREDIT_MOVIE_KEY)));
 
                             Intent intent = new Intent(getActivity(), DetailActivity.class)
+                                    .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                                     .setData(contentUri);
                             startActivity(intent);
                         }

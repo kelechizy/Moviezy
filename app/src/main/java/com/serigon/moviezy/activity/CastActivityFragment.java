@@ -122,7 +122,7 @@ public class CastActivityFragment extends Fragment implements LoaderManager.Load
                         Intent intent = new Intent(getActivity(), PersonActivity.class)
                                 .putExtra("PERSON_ID", mCursor.getLong(CastActivityFragment.COL_CAST_ID))
                                 .putExtra("PERSON_NAME", mCursor.getString(CastActivityFragment.COL_CAST_NAME));
-                        startActivity(intent);
+                        startActivityForResult(intent,0);
 
                     }
                 })

@@ -10,7 +10,7 @@ import android.provider.BaseColumns;
  */
 public class MovieContract {
     //The Content Authority is the name for the entire content provider
-    public static final String CONTENT_AUTHORITY = "com.serigon.movietrend.data";
+    public static final String CONTENT_AUTHORITY = "com.serigon.moviezy.data";
 
     //Use Content Authority to create the base URI's
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);

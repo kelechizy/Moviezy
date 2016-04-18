@@ -1,5 +1,6 @@
 package com.serigon.moviezy.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,21 @@ import android.view.MenuItem;
 import com.serigon.movietrend.R;
 
 public class CastActivity extends AppCompatActivity {
+
+    private Intent returnIntent;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == Activity.RESULT_OK) {
+            if (getParent() == null) {
+                setResult(Activity.RESULT_OK, returnIntent);
+            } else {
+                getParent().setResult(Activity.RESULT_OK, returnIntent);
+            }
+            finish();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +52,11 @@ public class CastActivity extends AppCompatActivity {
             return true;
         }
         if (id == android.R.id.home) {
+            if (getParent() == null) {
+                setResult(Activity.RESULT_OK, returnIntent);
+            } else {
+                getParent().setResult(Activity.RESULT_OK, returnIntent);
+            }
             finish();
             return true;
         }
