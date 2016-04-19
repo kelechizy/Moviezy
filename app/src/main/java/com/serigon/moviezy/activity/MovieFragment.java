@@ -3,6 +3,7 @@ package com.serigon.moviezy.activity;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
@@ -35,6 +36,7 @@ import com.serigon.moviezy.utility.GridAutofitLayoutManager;
 public class MovieFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
     private MovieFragment mMoviefragment = this;
+    private static final String BUNDLE_RECYCLER_LAYOUT = "MainActivity.recycler.layout";
 
     private static final String sortBy = "popularity.desc";
     private static final String SELECTED_KEY = "selected_position";
@@ -85,6 +87,22 @@ public class MovieFragment extends Fragment implements LoaderManager.LoaderCallb
     public MovieFragment() {setHasOptionsMenu(true);}
 
     @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable(BUNDLE_RECYCLER_LAYOUT, mMovie.getLayoutManager().onSaveInstanceState());
+    }
+
+    @Override
+    public void onViewStateRestored(Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        if(savedInstanceState != null)
+        {
+            Parcelable savedRecyclerLayoutState = savedInstanceState.getParcelable(BUNDLE_RECYCLER_LAYOUT);
+            mMovie.getLayoutManager().onRestoreInstanceState(savedRecyclerLayoutState);
+        }
+    }
+
+    @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_main, menu);
     }
@@ -116,7 +134,7 @@ public class MovieFragment extends Fragment implements LoaderManager.LoaderCallb
         mMovie.setHasFixedSize(false);
         mMovieGridLayoutManager = new GridAutofitLayoutManager(getContext(), 200);
         mMovie.setLayoutManager(mMovieGridLayoutManager);
-        
+
 
         pullToRefresh = (SwipeRefreshLayout) rootView.findViewById(R.id.pullToRefresh);
         pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -134,12 +152,7 @@ public class MovieFragment extends Fragment implements LoaderManager.LoaderCallb
 
         // Start Loader
         getLoaderManager().initLoader(MOVIE_LOADER, null, this);
-
-        // On screen rotation we would want to restore the position on the Gridview list
-        if (savedInstanceState != null && savedInstanceState.containsKey(SELECTED_KEY)) {
-            mPosition = savedInstanceState.getInt(SELECTED_KEY);
-        }
-
+        
         return rootView;
     }
 
