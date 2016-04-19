@@ -9,6 +9,7 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -23,6 +24,7 @@ import com.serigon.moviezy.adapter.MovieAdapter;
 import com.serigon.moviezy.data.MovieContract;
 import com.serigon.moviezy.data.MovieDbHelper;
 import com.serigon.moviezy.task.FetchMovieTask;
+import com.serigon.moviezy.utility.EndlessRecyclerOnScrollListener;
 import com.serigon.moviezy.utility.GridAutofitLayoutManager;
 
 
@@ -38,9 +40,12 @@ public class MovieFragment extends Fragment implements LoaderManager.LoaderCallb
     private static final String SELECTED_KEY = "selected_position";
 
     private int pageNumber = 1;
+    private boolean loading = true;
+    private int pastVisiblesItems, visibleItemCount, totalItemCount;
     private int mPosition = GridView.INVALID_POSITION;
 
     private MovieAdapter mMovieAdapter;
+    private GridAutofitLayoutManager mMovieGridLayoutManager;
     private TableLayout tableLayout;
     private GridView movieGridView;
     private RecyclerView mMovie;
@@ -109,44 +114,9 @@ public class MovieFragment extends Fragment implements LoaderManager.LoaderCallb
         mMovieAdapter = new MovieAdapter(getActivity(),null);
         mMovie.setAdapter(mMovieAdapter);
         mMovie.setHasFixedSize(false);
-        GridAutofitLayoutManager mMovieGridLayoutManager = new GridAutofitLayoutManager(getContext(), 200);
+        mMovieGridLayoutManager = new GridAutofitLayoutManager(getContext(), 200);
         mMovie.setLayoutManager(mMovieGridLayoutManager);
-
-
-//        movieGridView = (GridView) rootView.findViewById(R.id.grid_movie);
-//        mMovieAdapter = new MovieAdapter(getActivity());
-//        movieGridView.setAdapter(mMovieAdapter);
-//        movieGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-//                //CursorAdapter returns a cursor at the correct position for getItem(), or null
-//                //if it cannot seek to that position.
-//
-//                Cursor cursor = ((MovieAdapter) adapterView.getAdapter()).getCursor();
-//                cursor.moveToPosition(position);
-//
-//                if (cursor != null) {
-//                    ((Callback) getActivity()).onItemSelected(MovieContract.MovieEntry.buildMovieUri(
-//                            cursor.getInt(COL_MOVIE_ID)));
-//                }
-//                mPosition = position;
-//            }
-//        });
-//
-//        movieGridView.setOnScrollListener(new EndlessScrollListener() {
-//            @Override
-//            public boolean onLoadMore(int page, int totalItemsCount) {
-//                // Triggered only when new data needs to be appended to the list
-//                // Add whatever code is needed to append new items to your AdapterView
-//                totalItemsCount++;
-//                page = 1 + (totalItemsCount / 20);
-//
-//                FetchMovieTask movieTask = new FetchMovieTask(getActivity(), mMovieAdapter, sortBy, page, mMoviefragment);
-//                movieTask.execute();
-//
-//                return true; // ONLY if more data is actually being loaded; false otherwise.
-//            }
-//        });
+        
 
         pullToRefresh = (SwipeRefreshLayout) rootView.findViewById(R.id.pullToRefresh);
         pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -200,22 +170,20 @@ public class MovieFragment extends Fragment implements LoaderManager.LoaderCallb
     public void onLoadFinished(Loader<Cursor> loader, final Cursor data) {
         mMovieAdapter.swapCursor(data);
 
-//        mMovie.addOnItemTouchListener(
-//                new RecyclerItemClickListener(getContext(), new RecyclerItemClickListener.OnItemClickListener() {
-//                    @Override
-//                    public void onItemClick(View view, int position) {
-//                        Cursor mCursor = data;
-//                        mCursor.moveToPosition(position);
-//
-//                        Intent intent = new Intent(getActivity(), DetailActivity.class)
-//                                .putExtra("MOVIE_TITLE", mCursor.getString(MovieFragment.COL_MOVIE_TITLE))
-//                                .putExtra("MOVIE_ID", mCursor.getLong(MovieFragment.COL_MOVIE_ID));
-//
-//                        startActivity(intent);
-//
-//                    }
-//                })
-//        );
+        mMovie.addOnScrollListener(new EndlessRecyclerOnScrollListener(mMovieGridLayoutManager) {
+            @Override
+            public void onLoadMore(int current_page) {
+                // do something...
+
+                //totalItemCount;
+                Log.e("Page", "" + current_page);
+
+                pageNumber = current_page;
+
+                FetchMovieTask movieTask = new FetchMovieTask(getActivity(), mMovieAdapter, sortBy, current_page, mMoviefragment);
+                movieTask.execute();
+            }
+        });
     }
 
     //@TargetApi(Build.VERSION_CODES.HONEYCOMB)
