@@ -125,7 +125,7 @@ public class MovieFragment extends Fragment implements LoaderManager.LoaderCallb
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_main2, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
         mMovie = (RecyclerView) rootView.findViewById(R.id.movieRecyclerView);
 

@@ -29,7 +29,7 @@ public class CreditAdapter extends CursorRecyclerViewAdapter<CreditAdapter.ViewH
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.credit_list, parent, false);
+                .inflate(R.layout.list_credit, parent, false);
         ViewHolder vh = new ViewHolder(itemView);
         return vh;
     }

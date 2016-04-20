@@ -11,7 +11,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.GridView;
 
 import com.serigon.movietrend.R;
 
@@ -37,8 +36,8 @@ public class MovieActivity extends AppCompatActivity implements MovieFragment.Ca
 
             int col = Integer.parseInt(String.valueOf(R.string.my_gridview_column));
 
-            GridView myGridView = (GridView) findViewById(R.id.grid_movie);
-            myGridView.setNumColumns(col);
+//            GridView myGridView = (GridView) findViewById(R.id.grid_movie);
+//            myGridView.setNumColumns(col);
         } else {
             mTwoPane = false;
         }

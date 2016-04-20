@@ -38,7 +38,7 @@ public class CastMiniAdapter extends CursorAdapter {
 
         if (convertView == null) {
             LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-            convertView = inflater.inflate(R.layout.cast_mini_list, parent, false);
+            convertView = inflater.inflate(R.layout.list_cast_mini, parent, false);
 
             viewHolder = new ViewHolder();
             viewHolder.profileView = (ImageView) convertView.findViewById(R.id.profileImageView);
@@ -68,7 +68,7 @@ public class CastMiniAdapter extends CursorAdapter {
 
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        View view = LayoutInflater.from(context).inflate(R.layout.cast_mini_list, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.list_cast_mini, parent, false);
 
         ViewHolder viewHolder = new ViewHolder(view);
         view.setTag(viewHolder);

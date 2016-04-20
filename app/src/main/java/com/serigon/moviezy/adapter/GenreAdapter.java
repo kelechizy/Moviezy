@@ -25,7 +25,7 @@ public class GenreAdapter extends CursorRecyclerViewAdapter<GenreAdapter.ViewHol
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.genre_list, parent, false);
+                .inflate(R.layout.list_genre, parent, false);
         ViewHolder vh = new ViewHolder(itemView);
         return vh;
     }

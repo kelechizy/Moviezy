@@ -41,7 +41,7 @@ public class CastAdapter extends CursorRecyclerViewAdapter<CastAdapter.ViewHolde
     @Override
     public CastAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.cast_mini_list, parent, false);
+                .inflate(R.layout.list_cast_mini, parent, false);
 
         ViewHolder vh = new ViewHolder(itemView);
         return vh;

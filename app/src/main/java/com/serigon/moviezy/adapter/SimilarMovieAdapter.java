@@ -37,7 +37,7 @@ public class SimilarMovieAdapter extends CursorRecyclerViewAdapter<SimilarMovieA
     @Override
     public SimilarMovieAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.similar_list, parent, false);
+                .inflate(R.layout.list_similar, parent, false);
 
         ViewHolder vh = new ViewHolder(itemView);
         return vh;

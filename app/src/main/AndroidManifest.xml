@@ -36,14 +36,6 @@
             android:theme="@style/NoActionBarTheme" >
         </activity>
         <activity
-            android:name="com.serigon.moviezy.activity.SettingsActivity"
-            android:label="@string/title_activity_settings"
-            android:parentActivityName="com.serigon.moviezy.activity.MovieActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.serigon.moviezy.activity.MovieActivity" />
-        </activity>
-        <activity
             android:name="com.serigon.moviezy.activity.VideoActivity"
             android:label="@string/title_activity_media_player"
             android:parentActivityName="com.serigon.moviezy.activity.DetailActivity" >

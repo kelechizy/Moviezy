@@ -7,7 +7,7 @@
         android:id="@+id/trailer_image"
         android:layout_width="120dp"
         android:layout_height="90dp"
-        android:src="@drawable/sample_trailer"
+        android:src="@drawable/movieholder"
         android:scaleType="fitStart" />
 
 
