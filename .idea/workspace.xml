@@ -67,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DetailActivityFragment.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DetailActivityFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/serigon/moviezy/activity/DetailActivityFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.5716982">
-              <caret line="624" column="34" selection-start-line="624" selection-start-column="34" selection-end-line="624" selection-end-column="34" />
+            <state vertical-scroll-proportion="-11.827586">
+              <caret line="624" column="79" selection-start-line="624" selection-start-column="79" selection-end-line="624" selection-end-column="79" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#6891#6892#0" expanded="true" />
@@ -89,6 +89,16 @@
                 <element signature="class#21326:23976" expanded="false" />
                 <element signature="method#reloadLoaders#0;class#DetailActivityFragment#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PersonActivityFragment.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/serigon/moviezy/activity/PersonActivityFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6187291">
+              <caret line="294" column="84" selection-start-line="294" selection-start-column="84" selection-end-line="294" selection-end-column="84" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1682,11 +1692,11 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/serigon/moviezy/utility/EndlessRecyclerOnScrollListener.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/serigon/moviezy/activity/MovieFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_person.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/serigon/moviezy/activity/PersonActivityFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/serigon/moviezy/adapter/SimilarMovieAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/similar_list.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/serigon/moviezy/activity/DetailActivityFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/serigon/moviezy/activity/PersonActivityFragment.java" />
       </list>
     </option>
   </component>
@@ -2144,10 +2154,10 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3270869" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44293016" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44293016" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5377207" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.53630865" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -2601,14 +2611,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/serigon/moviezy/activity/PersonActivityFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51699466">
-          <caret line="267" column="15" selection-start-line="255" selection-start-column="12" selection-end-line="270" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/movie_list.xml">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2694,8 +2696,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/serigon/moviezy/activity/DetailActivityFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.5716982">
-          <caret line="624" column="34" selection-start-line="624" selection-start-column="34" selection-end-line="624" selection-end-column="34" />
+        <state vertical-scroll-proportion="-11.827586">
+          <caret line="624" column="79" selection-start-line="624" selection-start-column="79" selection-end-line="624" selection-end-column="79" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#6891#6892#0" expanded="true" />
@@ -2713,6 +2715,14 @@
             <element signature="class#21326:23976" expanded="false" />
             <element signature="method#reloadLoaders#0;class#DetailActivityFragment#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/serigon/moviezy/activity/PersonActivityFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6187291">
+          <caret line="294" column="84" selection-start-line="294" selection-start-column="84" selection-end-line="294" selection-end-column="84" />
+          <folding />
         </state>
       </provider>
     </entry>

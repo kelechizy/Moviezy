@@ -622,7 +622,7 @@ public class DetailActivityFragment extends Fragment implements LoaderManager.Lo
         shareIntent.setType("text/plain");
         shareIntent.putExtra(Intent.EXTRA_TEXT, "Hey, I found "+title +" on "
                 + MOVIE_SHARE_HASHTAG
-                + " Android App.\nDownload it here http://moviezy.kelechizy.com/dl/" );
+                + " Android App.\nDownload it here http://moviezy.kelechizy.com" );
         return shareIntent;
     }
 

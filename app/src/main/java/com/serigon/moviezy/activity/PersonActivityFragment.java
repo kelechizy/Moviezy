@@ -224,7 +224,9 @@ public class PersonActivityFragment extends Fragment implements LoaderManager.Lo
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_share) {
-            startActivity(createSharePersonIntent());
+            if(mPersonName != null) {
+                startActivity(createSharePersonIntent());
+            }
             return true;
         }
 
@@ -290,10 +292,9 @@ public class PersonActivityFragment extends Fragment implements LoaderManager.Lo
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
         shareIntent.setType("text/plain");
-        shareIntent.putExtra(Intent.EXTRA_TEXT, "Hey, I want you to check this out "
-                + mPersonName
+        shareIntent.putExtra(Intent.EXTRA_TEXT, "Hey, I found "+ mPersonName + " on "
                 + PERSON_SHARE_HASHTAG
-                + " Android"  );
+                + " Android App.\nDownload it here http://moviezy.kelechizy.com");
         return shareIntent;
     }
 }
