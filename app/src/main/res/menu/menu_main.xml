@@ -10,7 +10,7 @@
         android:orderInCategory="100"
         android:menuCategory="secondary"/>
 
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
+    <item android:id="@+id/action_rate" android:title="@string/action_rate"
         android:orderInCategory="100" app:showAsAction="never" />
 
 </menu>
