@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Moviezy</string>
     <string name="hello_world">Hello world!</string>
-    <string name="action_rate">Rate This App-</string>
+    <string name="action_rate">Rate This App</string>
     <string name="action_refresh">Refresh</string>
     <string name="title_activity_detail">DetailActivity</string>
     <string name="action_share">Share</string>
@@ -19,4 +19,6 @@
     <string name="title_activity_cast">CastActivity</string>
     <string name="title_activity_intro">IntroActivity</string>
     <string name="title_activity_person">Person</string>
+    <string name="title_activity_splash">Splash</string>
+    <string name="action_settings">Settings</string>
 </resources>
