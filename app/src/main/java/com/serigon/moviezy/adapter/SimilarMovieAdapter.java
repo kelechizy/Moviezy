@@ -1,9 +1,8 @@
 package com.serigon.moviezy.adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
-import android.support.v4.widget.CursorAdapter;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,105 +11,46 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.serigon.movietrend.R;
 import com.serigon.moviezy.activity.DetailActivityFragment;
-
-import java.util.ArrayList;
+import com.serigon.moviezy.utility.CursorRecyclerViewAdapter;
 
 /**
  * Created by Kelechi on 3/10/2016.
  */
-public class SimilarMovieAdapter extends CursorAdapter {
-    Context context;
-    ArrayList<String> itemList = new ArrayList<String>();
-    private static LayoutInflater inflater = null;
+public class SimilarMovieAdapter extends CursorRecyclerViewAdapter<SimilarMovieAdapter.ViewHolder> {
+    private final Context mContext;
 
-    public SimilarMovieAdapter(Context Context) {
-        super(Context, null, false);
-        context = Context;
-        inflater.from(context);
+    public SimilarMovieAdapter(Context context, Cursor cursor) {
+        super(context, cursor);
+        mContext = context;
     }
 
     @Override
-    public Object getItem(int i) {
-        return i;
-    }
-
-    @Override
-    public long getItemId(int i) {
-        return i;
-    }
-
-    public void add(String path) {
-        itemList.add(path);
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder viewHolder = null;
-        //imageView = viewHolder.posterView;
-
-        if (convertView == null) {
-            LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-            convertView = inflater.inflate(R.layout.similar_list, parent, false);
-
-            viewHolder = new ViewHolder();
-            viewHolder.posterView = (ImageView) convertView.findViewById(R.id.similar_movie_image);
-
-            convertView.setTag(viewHolder);
-        } else {
-            viewHolder = (ViewHolder) convertView.getTag();
-        }
-
-        Cursor cursor = getCursor();
-        cursor.moveToPosition(position);
-
-        ImageView imageView = viewHolder.posterView;
-        String url = cursor.getString(DetailActivityFragment.COL_SIMILAR_POSTER_PATH);
-
-        Glide.with(context)
-                .load(url)
-                .placeholder(R.drawable.movieholder_dark)
-                .crossFade()
-                .into(imageView);
-
-        return convertView;
-        //return super.getView(position, convertView, parent);
-    }
-
-    @Override
-    public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        View view = LayoutInflater.from(context).inflate(R.layout.similar_list, parent, false);
-
-        ViewHolder viewHolder = new ViewHolder(view);
-        view.setTag(viewHolder);
-
-        return view;
-    }
-
-    @Override
-    public void bindView(View view, Context context, Cursor cursor) {
-        ViewHolder viewHolder = (ViewHolder) view.getTag();
-
+    public void onBindViewHolder(SimilarMovieAdapter.ViewHolder viewHolder, Cursor cursor) {
         String posterImage = cursor.getString(DetailActivityFragment.COL_SIMILAR_POSTER_PATH);
 
-        Glide.with(context)
+        Glide.with(mContext)
                 .load(posterImage)
-                .placeholder(R.drawable.movieholder_dark)
                 .crossFade()
                 .into(viewHolder.posterView);
-
     }
 
+    @Override
+    public SimilarMovieAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.similar_list, parent, false);
 
-    private static class ViewHolder {
+        ViewHolder vh = new ViewHolder(itemView);
+        return vh;
+    }
+
+    public  class ViewHolder extends RecyclerView.ViewHolder {
         ImageView posterView;
 
         public ViewHolder(View view) {
+            super(view);
             posterView = (ImageView) view.findViewById(R.id.similar_movie_image);
         }
 
-        public ViewHolder() {
-
-        }
     }
 
 }

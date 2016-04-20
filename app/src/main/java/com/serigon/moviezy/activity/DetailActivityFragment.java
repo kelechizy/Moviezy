@@ -38,6 +38,7 @@ import com.serigon.moviezy.adapter.GenreAdapter;
 import com.serigon.moviezy.adapter.SimilarMovieAdapter;
 import com.serigon.moviezy.data.MovieContract;
 import com.serigon.moviezy.task.FetchMovieDetailTask;
+import com.serigon.moviezy.utility.RecyclerItemClickListener;
 import com.serigon.moviezy.utility.StringFormatter;
 
 
@@ -140,6 +141,7 @@ public class DetailActivityFragment extends Fragment implements LoaderManager.Lo
     private TextView mDate;
     private Button mViewCastButton;
     private RecyclerView mGenre;
+    private RecyclerView mSimilar;
     private GridView mSimilarGridView;
     private GridView mCastGridView;
 
@@ -156,8 +158,8 @@ public class DetailActivityFragment extends Fragment implements LoaderManager.Lo
     private String mMoviePoster;
     private String mMovieBackdrop;
     private GenreAdapter mGenreRecyclerViewAdapter;
+    private SimilarMovieAdapter mSimilarRecyclerViewAdapter;
     private CastMiniAdapter mCastMiniAdapter;
-    private SimilarMovieAdapter mSimilarMovieAdapter;
 
     private boolean fragmentWasPaused = false;
     private String pauseMovieTitle;
@@ -259,6 +261,7 @@ public class DetailActivityFragment extends Fragment implements LoaderManager.Lo
         mVote = (TextView) rootView.findViewById(R.id.detail_vote);
         mDate = (TextView) rootView.findViewById(R.id.detail_date);
         mGenre = (RecyclerView) rootView.findViewById(R.id.genreRecyclerView);
+        mSimilar = (RecyclerView) rootView.findViewById(R.id.similarRecyclerView);
 
         mGenreRecyclerViewAdapter = new GenreAdapter(getActivity(), null);
         mGenre.setAdapter(mGenreRecyclerViewAdapter);
@@ -266,9 +269,13 @@ public class DetailActivityFragment extends Fragment implements LoaderManager.Lo
         LinearLayoutManager mGenreLinearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         mGenre.setLayoutManager(mGenreLinearLayoutManager);
 
-        mSimilarMovieAdapter = new SimilarMovieAdapter(getActivity());
-        mSimilarGridView = (GridView) rootView.findViewById(R.id.grid_similar_movie);
-        mSimilarGridView.setAdapter(mSimilarMovieAdapter);
+        mSimilar = (RecyclerView) rootView.findViewById(R.id.similarRecyclerView);
+        mSimilarRecyclerViewAdapter = new SimilarMovieAdapter(getActivity(), null);
+        mSimilar.setHasFixedSize(false);
+
+        LinearLayoutManager mSimilarLinearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        mSimilar.setLayoutManager(mSimilarLinearLayoutManager);
+        mSimilar.setAdapter(mSimilarRecyclerViewAdapter);
 
         mCastMiniAdapter = new CastMiniAdapter(getActivity());
         mCastGridView = (GridView) rootView.findViewById(R.id.grid_cast);
@@ -492,41 +499,37 @@ public class DetailActivityFragment extends Fragment implements LoaderManager.Lo
 
         @Override
         public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-            mSimilarMovieAdapter.swapCursor(data);
+            mSimilarRecyclerViewAdapter.swapCursor(data);
 
-            CardView mSimilarCardView = (CardView) getActivity().findViewById(R.id.similarMovieCardView);
 
-            if (data.getCount() != 0)
-            {
-                mSimilarGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                        Cursor cursor = ((SimilarMovieAdapter) adapterView.getAdapter()).getCursor();
-                        cursor.moveToPosition(position);
+            if (data.getCount() != 0) {
+                mSimilar.addOnItemTouchListener(
+                        new RecyclerItemClickListener(getContext(), new RecyclerItemClickListener.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+                                Cursor mCursor = mSimilarRecyclerViewAdapter.getCursor();
+                                mCursor.moveToPosition(position);
 
-                        if (cursor != null) {
-                            Uri contentUri = MovieContract.MovieEntry.buildMovieUri(cursor.getInt(COL_SIMILAR_SIMILAR_MOVIE_ID));
+                                Uri contentUri = MovieContract.MovieEntry.buildMovieUri(mCursor.getInt(COL_SIMILAR_SIMILAR_MOVIE_ID));
 
-                            Intent intent = new Intent(getActivity(), DetailActivity.class)
-                                    .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                                    .setData(contentUri);
-                            startActivityForResult(intent, 0);
-                        }
-                    }
-                });
-
-                mSimilarCardView.setVisibility(View.VISIBLE);
+                                Intent intent = new Intent(getActivity(), DetailActivity.class)
+                                        .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                                        .setData(contentUri);
+                                startActivity(intent);
+                            }
+                        })
+                );
             }
 
             // For performance reasons we use postInvalidate
             // postInvalidate re-draws the view
-            mSimilarGridView.postInvalidate();
-            mSimilarCardView.postInvalidate();
+            //mSimilarGridView.postInvalidate();
+            //mSimilarCardView.postInvalidate();
         }
 
         @Override
         public void onLoaderReset(Loader<Cursor> loader) {
-            mSimilarMovieAdapter.swapCursor(null);
+            mSimilarRecyclerViewAdapter.swapCursor(null);
         }
     };
 

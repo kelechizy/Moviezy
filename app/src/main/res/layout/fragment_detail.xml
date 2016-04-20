@@ -253,14 +253,12 @@
                     android:verticalSpacing="2dp"
                     android:horizontalSpacing="1dp"
                     android:columnWidth="110dp"
-
-                        app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior"
                     android:scrollIndicators="none" />
 
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="View All Casts"
+                        android:text="View Casts"
                         android:id="@+id/viewCastButton"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
@@ -268,48 +266,22 @@
 
             </android.support.v7.widget.CardView>
 
-            <android.support.v7.widget.CardView
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/ColorPrimaryDark"
+                android:text="Similar Movies"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/textView" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/similarRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:elevation="4dp"
-                android:layout_marginLeft="@dimen/my_cardview_margin"
-                android:layout_marginRight="@dimen/my_cardview_margin"
-                android:id="@+id/similarMovieCardView"
-                android:visibility="gone">
-
-                <LinearLayout android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="Similar Movies"
-                        android:id="@+id/textView2"
-                        android:textColor="@color/ColorPrimaryDark"
-                        android:layout_margin="5dp" />
-
-                    <GridView
-                        android:layout_width="match_parent"
-                        android:layout_height="368dp"
-                        android:id="@+id/grid_similar_movie"
-                        android:layout_alignParentLeft="true"
-                        android:numColumns="auto_fit"
-                        android:verticalSpacing="2dp"
-                        android:horizontalSpacing="2dp"
-                        android:columnWidth="100dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp" />
-
-                </LinearLayout>
-
-                </android.support.v7.widget.CardView>
-
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp" />
 
         </LinearLayout>
 

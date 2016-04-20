@@ -152,7 +152,7 @@ public class MovieFragment extends Fragment implements LoaderManager.LoaderCallb
 
         // Start Loader
         getLoaderManager().initLoader(MOVIE_LOADER, null, this);
-        
+
         return rootView;
     }
 

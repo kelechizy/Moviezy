@@ -103,7 +103,6 @@ public class PersonActivityFragment extends Fragment implements LoaderManager.Lo
     public PersonActivityFragment() { setHasOptionsMenu(true);}
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
