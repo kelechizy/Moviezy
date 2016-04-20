@@ -296,7 +296,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="26dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="80dp"
         android:clickable="true"
         android:src="@drawable/ic_play_arrow_white_24dp"
         app:layout_anchor="@id/detailCardView"

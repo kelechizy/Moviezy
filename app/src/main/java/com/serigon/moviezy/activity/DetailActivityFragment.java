@@ -184,12 +184,12 @@ public class DetailActivityFragment extends Fragment implements LoaderManager.Lo
         Intent pauseData = getActivity().getIntent();
 
         if(fragmentWasPaused && pauseData.getStringExtra("MOVIE_HAS_DATA") != "YES") {
-            pauseData.putExtra("MOVIE_TITLE",mMovieTitle);
-            pauseData.putExtra("MOVIE_OVERVIEW",mMovieOverview);
-            pauseData.putExtra("MOVIE_POSTER",mMoviePoster);
-            pauseData.putExtra("MOVIE_BACKDROP",mMovieBackdrop);
-            pauseData.putExtra("MOVIE_DATE",mMovieDate);
-            pauseData.putExtra("MOVIE_VOTE",mMovieVote);
+            pauseData.putExtra("MOVIE_TITLE", mMovieTitle);
+            pauseData.putExtra("MOVIE_OVERVIEW", mMovieOverview);
+            pauseData.putExtra("MOVIE_POSTER", mMoviePoster);
+            pauseData.putExtra("MOVIE_BACKDROP", mMovieBackdrop);
+            pauseData.putExtra("MOVIE_DATE", mMovieDate);
+            pauseData.putExtra("MOVIE_VOTE", mMovieVote);
             pauseData.putExtra("MOVIE_HAS_DATA","YES");
         }
     }
@@ -319,7 +319,9 @@ public class DetailActivityFragment extends Fragment implements LoaderManager.Lo
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_share) {
-            startActivity(createShareMovieIntent());
+            if(mMovieTitle!= null) {
+                startActivity(createShareMovieIntent("" + mMovieTitle));
+            }
             return true;
         }
 
@@ -337,7 +339,7 @@ public class DetailActivityFragment extends Fragment implements LoaderManager.Lo
         ShareActionProvider mShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(menuItem);
 
         if (mShareActionProvider != null) {
-            mShareActionProvider.setShareIntent(createShareMovieIntent());
+            mShareActionProvider.setShareIntent(createShareMovieIntent(mMovieTitle));
         } else {
             Log.d("Sad", "Share Action Provider is null?");
         }
@@ -613,15 +615,14 @@ public class DetailActivityFragment extends Fragment implements LoaderManager.Lo
         catch (Exception ex){}
     }
 
-    private Intent createShareMovieIntent() {
+    private Intent createShareMovieIntent(String title) {
         // Share movie
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
         shareIntent.setType("text/plain");
-        shareIntent.putExtra(Intent.EXTRA_TEXT, "Hey, I want you to check this out "
-                + mMovieTitle
+        shareIntent.putExtra(Intent.EXTRA_TEXT, "Hey, I found "+title +" on "
                 + MOVIE_SHARE_HASHTAG
-                + " for movies on my Android" );
+                + " Android App.\nDownload it here http://moviezy.kelechizy.com/dl/" );
         return shareIntent;
     }
 
