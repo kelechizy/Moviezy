@@ -3,7 +3,7 @@ Discover Movies With No Hassles. <a href="http://moviezy.kelechizy.com"> Visit W
 <img height="80px" src="http://moviezy.kelechizy.com/assets/images/google-play-badge.png"/>
 
 <h2>About</h2>
-<br>Here is a fully functional and colorful android app which I made from scratch. This is my variant of Udacity Popular Movies App : Android Nanodegree.
+Here is a fully functional and colorful android app which I made from scratch. This is my variant of Udacity Popular Movies App : Android Nanodegree.
 
 <h2>Features</h2>
 With the app, you can:
