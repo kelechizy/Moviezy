@@ -1,6 +1,6 @@
 # Moviezy App
 Discover Movies With No Hassles. <a href="http://moviezy.kelechizy.com"> Visit Website </a> | <a href="https://www.youtube.com/watch?v=JPGs5j5_6G0"> Watch Demo on YouTube </a><br>
-<img height="80px" src="http://moviezy.kelechizy.com/assets/images/google-play-badge.png"/>
+<a target="_blank" href="http://moviezy.kelechizy.com/dl"><img height="80px" src="http://moviezy.kelechizy.com/assets/images/google-play-badge.png"/></a>
 <h2>About</h2>
 Here is a fully functional and colorful android app which I made from scratch. This is my variant of Udacity Popular Movies App : Android Nanodegree.
 
@@ -14,6 +14,6 @@ With the app, you can:
 </ul>
 
 
-<img src="http://moviezy.kelechizy.com/assets/images/Moviezy%20App%20Promo.jpg"/>
+<a target="_blank" href="http://moviezy.kelechizy.com/dl"><img src="http://moviezy.kelechizy.com/assets/images/Moviezy%20App%20Promo.jpg"/></a>
 
 
